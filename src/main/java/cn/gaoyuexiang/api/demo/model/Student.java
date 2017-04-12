@@ -2,8 +2,10 @@ package cn.gaoyuexiang.api.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "student")
 public class Student {
 
   @Id
