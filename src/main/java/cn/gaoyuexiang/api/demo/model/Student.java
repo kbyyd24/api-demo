@@ -1,8 +1,7 @@
 package cn.gaoyuexiang.api.demo.model;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Student {
