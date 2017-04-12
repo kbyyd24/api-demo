@@ -20,6 +20,7 @@ public class StudentController {
   }
 
   @POST
+  @Path("new")
   @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
   @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
   public Student addStudent(Student student) {
