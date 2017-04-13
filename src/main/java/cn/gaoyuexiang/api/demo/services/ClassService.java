@@ -1,9 +1,8 @@
 package cn.gaoyuexiang.api.demo.services;
 
-import cn.gaoyuexiang.api.demo.repositories.CourseRepo;
-import cn.gaoyuexiang.api.demo.repositories.StudentCourseRepo;
-import cn.gaoyuexiang.api.demo.repositories.StudentRepo;
-import cn.gaoyuexiang.api.demo.repositories.TeacherRepo;
+import cn.gaoyuexiang.api.demo.model.StudentClass;
+import cn.gaoyuexiang.api.demo.model.TeacherClazz;
+import cn.gaoyuexiang.api.demo.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,19 +10,22 @@ import org.springframework.stereotype.Service;
 public class ClassService {
 
   private final TeacherRepo teacherRepo;
-  private final StudentRepo studentRepo;
   private final CourseRepo courseRepo;
   private StudentCourseRepo studentCourseRepo;
+  private final TeacherClazzRepo teacherClazzRepo;
+  private final StudentClassRepo studentClassRepo;
 
   @Autowired
   public ClassService(TeacherRepo teacherRepo,
-                      StudentRepo studentRepo,
                       CourseRepo courseRepo,
-                      StudentCourseRepo studentCourseRepo) {
+                      StudentCourseRepo studentCourseRepo,
+                      TeacherClazzRepo teacherClazzRepo,
+                      StudentClassRepo studentClassRepo) {
     this.teacherRepo = teacherRepo;
-    this.studentRepo = studentRepo;
     this.courseRepo = courseRepo;
     this.studentCourseRepo = studentCourseRepo;
+    this.teacherClazzRepo = teacherClazzRepo;
+    this.studentClassRepo = studentClassRepo;
   }
 
   private boolean checkAuth(String teacherId,
@@ -38,14 +40,14 @@ public class ClassService {
 
   private boolean checkTeacherAndClass(String teacherId,
                                        String classId) {
-//    only one class
-    return true;
+    TeacherClazz teacherClazz = this.teacherClazzRepo.findByTeacherIdAndClassId(teacherId, classId);
+    return teacherClazz != null;
   }
 
   private boolean checkClassAndStudent(String classId,
                                        String studentId) {
-//    only one class
-    return true;
+    StudentClass studentClass = this.studentClassRepo.findByStudentIdAndClassId(studentId, classId);
+    return studentClass != null;
   }
 
   private boolean checkTeacherAndCourse(String teacherId,
