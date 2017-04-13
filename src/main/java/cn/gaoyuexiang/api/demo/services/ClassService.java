@@ -24,7 +24,10 @@ public class ClassService {
                            String classId,
                            String studentId,
                            String queryCourse) {
-    return false;
+    return
+        this.checkTeacherAndClass(teacherId, classId) &&
+        this.checkClassAndStudent(classId, studentId) &&
+        this.checkTeacherAndCourse(teacherId, queryCourse);
   }
 
   private boolean checkTeacherAndClass(String teacherId,
