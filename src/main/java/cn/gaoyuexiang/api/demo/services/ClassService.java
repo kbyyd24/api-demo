@@ -8,8 +8,7 @@ public class ClassService {
   public boolean checkAuth(String teacherId,
                            String classId,
                            String studentId,
-                           String queryCourse,
-                           String teachCourse) {
+                           String queryCourse) {
     return false;
   }
 
@@ -23,7 +22,7 @@ public class ClassService {
     return false;
   }
 
-  private boolean checkTeacherAndCourse(String teachCourse,
+  private boolean checkTeacherAndCourse(String teacherId,
                                         String queryCourse) {
     return false;
   }

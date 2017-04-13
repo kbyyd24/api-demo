@@ -16,8 +16,7 @@ public class ClassController {
   public int queryScore(@PathParam("classId") String classId,
                         @PathParam("studentId") String studentId,
                         @PathParam("course") String course,
-                        @HeaderParam("teacher-id") String teacherId,
-                        @HeaderParam("teach-course") String teachCourse) {
+                        @HeaderParam("teacher-id") String teacherId) {
     return 0;
   }
 
