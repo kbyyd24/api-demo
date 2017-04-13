@@ -56,7 +56,7 @@ public class ClassService {
     if (isAuth) {
       return studentRepo.findById(studentId).getChinese();
     }
-    return 0;
+    return -1;
   }
 
 }
