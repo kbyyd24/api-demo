@@ -1,6 +1,7 @@
 package cn.gaoyuexiang.api.demo.services;
 
 import cn.gaoyuexiang.api.demo.repositories.CourseRepo;
+import cn.gaoyuexiang.api.demo.repositories.StudentCourseRepo;
 import cn.gaoyuexiang.api.demo.repositories.StudentRepo;
 import cn.gaoyuexiang.api.demo.repositories.TeacherRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +13,17 @@ public class ClassService {
   private final TeacherRepo teacherRepo;
   private final StudentRepo studentRepo;
   private final CourseRepo courseRepo;
+  private StudentCourseRepo studentCourseRepo;
 
   @Autowired
-  public ClassService(TeacherRepo teacherRepo, StudentRepo studentRepo, CourseRepo courseRepo) {
+  public ClassService(TeacherRepo teacherRepo,
+                      StudentRepo studentRepo,
+                      CourseRepo courseRepo,
+                      StudentCourseRepo studentCourseRepo) {
     this.teacherRepo = teacherRepo;
     this.studentRepo = studentRepo;
     this.courseRepo = courseRepo;
+    this.studentCourseRepo = studentCourseRepo;
   }
 
   private boolean checkAuth(String teacherId,
@@ -54,7 +60,7 @@ public class ClassService {
                             String queryCourse) {
     boolean isAuth = this.checkAuth(teacherId, classId, studentId, queryCourse);
     if (isAuth) {
-      return 0;
+      return studentCourseRepo.findByStudentIdAndCourseId(studentId, queryCourse).getScore();
     }
     return -1;
   }
