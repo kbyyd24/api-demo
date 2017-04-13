@@ -18,4 +18,9 @@ public class ClassService {
     return false;
   }
 
+  private boolean checkClassAndStudent(String classId,
+                                       String studentId) {
+    return false;
+  }
+
 }
