@@ -1,9 +1,24 @@
 package cn.gaoyuexiang.api.demo.services;
 
+import cn.gaoyuexiang.api.demo.repositories.CourseRepo;
+import cn.gaoyuexiang.api.demo.repositories.StudentRepo;
+import cn.gaoyuexiang.api.demo.repositories.TeacherRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ClassService {
+
+  private final TeacherRepo teacherRepo;
+  private final StudentRepo studentRepo;
+  private final CourseRepo courseRepo;
+
+  @Autowired
+  public ClassService(TeacherRepo teacherRepo, StudentRepo studentRepo, CourseRepo courseRepo) {
+    this.teacherRepo = teacherRepo;
+    this.studentRepo = studentRepo;
+    this.courseRepo = courseRepo;
+  }
 
   public boolean checkAuth(String teacherId,
                            String classId,
