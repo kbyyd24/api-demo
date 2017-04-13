@@ -23,4 +23,9 @@ public class ClassService {
     return false;
   }
 
+  private boolean checkTeacherAndCourse(String teachCourse,
+                                        String queryCourse) {
+    return false;
+  }
+
 }
