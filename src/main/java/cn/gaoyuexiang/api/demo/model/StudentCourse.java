@@ -11,16 +11,16 @@ public class StudentCourse {
   @Id
   private String id;
   private String studentId;
-  private String courseId;
+  private String courseName;
   private double score;
 
   public StudentCourse() {
   }
 
-  public StudentCourse(String id, String studentId, String courseId, double score) {
+  public StudentCourse(String id, String studentId, String courseName, double score) {
     this.id = id;
     this.studentId = studentId;
-    this.courseId = courseId;
+    this.courseName = courseName;
     this.score = score;
   }
 
@@ -40,12 +40,12 @@ public class StudentCourse {
     this.studentId = studentId;
   }
 
-  public String getCourseId() {
-    return courseId;
+  public String getCourseName() {
+    return courseName;
   }
 
-  public void setCourseId(String courseId) {
-    this.courseId = courseId;
+  public void setCourseName(String courseName) {
+    this.courseName = courseName;
   }
 
   public double getScore() {

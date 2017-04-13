@@ -60,7 +60,7 @@ public class ClassService {
                             String queryCourse) {
     boolean isAuth = this.checkAuth(teacherId, classId, studentId, queryCourse);
     if (isAuth) {
-      return studentCourseRepo.findByStudentIdAndCourseId(studentId, queryCourse).getScore();
+      return studentCourseRepo.findByStudentIdAndCourseName(studentId, queryCourse).getScore();
     }
     return -1;
   }
