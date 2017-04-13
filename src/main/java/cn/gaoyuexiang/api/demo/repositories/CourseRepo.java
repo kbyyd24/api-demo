@@ -1,12 +1,12 @@
 package cn.gaoyuexiang.api.demo.repositories;
 
-import cn.gaoyuexiang.api.demo.model.Teacher;
+import cn.gaoyuexiang.api.demo.model.Course;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TeacherRepo extends CrudRepository<Teacher, String> {
+public interface CourseRepo extends CrudRepository<Course, String>{
 
-  Teacher findById(String id);
+  Course findById(String id);
 
 }
