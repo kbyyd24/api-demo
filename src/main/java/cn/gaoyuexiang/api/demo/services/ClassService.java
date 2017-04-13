@@ -29,17 +29,20 @@ public class ClassService {
 
   private boolean checkTeacherAndClass(String teacherId,
                                        String classId) {
-    return false;
+//    only one class
+    return true;
   }
 
   private boolean checkClassAndStudent(String classId,
                                        String studentId) {
-    return false;
+//    only one class
+    return true;
   }
 
   private boolean checkTeacherAndCourse(String teacherId,
                                         String queryCourse) {
-    return false;
+    String teacherCourse = teacherRepo.findById(teacherId).getCourseId();
+    return courseRepo.findById(teacherCourse).getName().equals(queryCourse);
   }
 
 }
