@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 @Component
 public class ClassController {
 
+  private static final String UNAUTHORIZED = "Unauthorized";
   private ClassService classService;
 
   @Autowired
@@ -31,7 +32,7 @@ public class ClassController {
     if (score >= 0) {
       return Response.status(Response.Status.OK).entity(score).build();
     }
-    return Response.status(401).build();
+    return Response.status(Response.Status.UNAUTHORIZED).entity(UNAUTHORIZED).build();
   }
 
 }
