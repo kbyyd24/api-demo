@@ -20,10 +20,10 @@ public class ClassService {
     this.courseRepo = courseRepo;
   }
 
-  public boolean checkAuth(String teacherId,
-                           String classId,
-                           String studentId,
-                           String queryCourse) {
+  private boolean checkAuth(String teacherId,
+                            String classId,
+                            String studentId,
+                            String queryCourse) {
     return
         this.checkTeacherAndClass(teacherId, classId) &&
         this.checkClassAndStudent(classId, studentId) &&
@@ -46,6 +46,17 @@ public class ClassService {
                                         String queryCourse) {
     String teacherCourse = teacherRepo.findById(teacherId).getCourseId();
     return courseRepo.findById(teacherCourse).getName().equals(queryCourse);
+  }
+
+  public double getCourseScore(String teacherId,
+                            String classId,
+                            String studentId,
+                            String queryCourse) {
+    boolean isAuth = this.checkAuth(teacherId, classId, studentId, queryCourse);
+    if (isAuth) {
+      return studentRepo.findById(studentId).getChinese();
+    }
+    return 0;
   }
 
 }
