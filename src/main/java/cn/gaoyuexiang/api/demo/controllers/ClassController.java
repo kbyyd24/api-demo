@@ -8,6 +8,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.Response;
 
 @Path("classes")
 @Component
@@ -22,12 +23,15 @@ public class ClassController {
 
   @GET
   @Path("{classId}/students/{studentId}/{course}")
-  public double queryScore(@PathParam("classId") String classId,
-                        @PathParam("studentId") String studentId,
-                        @PathParam("course") String course,
-                        @HeaderParam("teacher-id") String teacherId) {
-    this.classService.getCourseScore(teacherId, classId, studentId, course);
-    return 0;
+  public Response queryScore(@PathParam("classId") String classId,
+                             @PathParam("studentId") String studentId,
+                             @PathParam("course") String course,
+                             @HeaderParam("teacher-id") String teacherId) {
+    double score = this.classService.getCourseScore(teacherId, classId, studentId, course);
+    if (score >= 0) {
+      return Response.status(Response.Status.OK).entity(score).build();
+    }
+    return Response.status(401).build();
   }
 
 }
