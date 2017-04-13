@@ -11,7 +11,6 @@ public class Student {
   @Id
   private String id;
   private String name;
-  private String clazz;
 
   public Student() {
   }
@@ -19,7 +18,6 @@ public class Student {
   public Student(String id, String name, String clazz, double math, double chinese) {
     this.id = id;
     this.name = name;
-    this.clazz = clazz;
   }
 
   public String getId() {
@@ -36,14 +34,6 @@ public class Student {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public String getClazz() {
-    return clazz;
-  }
-
-  public void setClazz(String clazz) {
-    this.clazz = clazz;
   }
 
 }
