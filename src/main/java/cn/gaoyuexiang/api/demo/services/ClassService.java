@@ -54,7 +54,7 @@ public class ClassService {
                             String queryCourse) {
     boolean isAuth = this.checkAuth(teacherId, classId, studentId, queryCourse);
     if (isAuth) {
-      return studentRepo.findById(studentId).getChinese();
+      return 0;
     }
     return -1;
   }

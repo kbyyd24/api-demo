@@ -12,8 +12,6 @@ public class Student {
   private String id;
   private String name;
   private String clazz;
-  private double math;
-  private double chinese;
 
   public Student() {
   }
@@ -22,8 +20,6 @@ public class Student {
     this.id = id;
     this.name = name;
     this.clazz = clazz;
-    this.math = math;
-    this.chinese = chinese;
   }
 
   public String getId() {
@@ -50,19 +46,4 @@ public class Student {
     this.clazz = clazz;
   }
 
-  public double getMath() {
-    return math;
-  }
-
-  public void setMath(double math) {
-    this.math = math;
-  }
-
-  public double getChinese() {
-    return chinese;
-  }
-
-  public void setChinese(double chinese) {
-    this.chinese = chinese;
-  }
 }
